@@ -1,5 +1,7 @@
 import React from "react";
-import { Form, Field } from "react-final-form";
+import { Form as FinalForm, Field } from "react-final-form";
+import Form  from "react-bootstrap/Form";
+
 import CheckboxInput from "./CheckboxInput";
 
 import NumberInput from "./NumberInput";
@@ -22,10 +24,10 @@ const onSubmit = async (values: Values) => {
 
 export const Content: React.FC = () => {
   return (
-    <Form
+    <FinalForm
       onSubmit={onSubmit}
       render={({ handleSubmit, values }) => (
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <label>Сумма</label>
           <>
             <div>
@@ -44,7 +46,9 @@ export const Content: React.FC = () => {
                 type="radio"
                 value="minimumWage"
               />
-              <label htmlFor="minimumWage">Мрот</label>
+              <label htmlFor="minimumWage">
+                Мрот <i>i</i>
+              </label>
             </div>
             <div>
               <Field<SalaryType>
@@ -66,8 +70,13 @@ export const Content: React.FC = () => {
             </div>
           </>
 
-          <div>
-            <label htmlFor="toggle-personalIncomTax">Указать с НДФЛ</label>
+          <div className="form-check form-switch">
+            <label
+              className="form-check-label"
+              htmlFor="toggle-personalIncomTax"
+            >
+              Указать с НДФЛ
+            </label>
             <Field<boolean> name="personalIncomTax" component={CheckboxInput} />
             <label htmlFor="toggle-personalIncomTax">Указать без НДФЛ</label>
           </div>
@@ -77,6 +86,7 @@ export const Content: React.FC = () => {
               name="payoutAmount"
               component={NumberInput}
               placeholder="0"
+              className="form-control"
             />
           </div>
 
@@ -85,7 +95,7 @@ export const Content: React.FC = () => {
             paymentAmount и отформатируем в рубли:{" "}
             {JSON.stringify(values, undefined, 2)}
           </pre>
-        </form>
+        </Form>
       )}
     />
   );

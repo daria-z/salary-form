@@ -6,7 +6,9 @@ function RadioInput<T extends string>({
   meta,
   ...rest
 }: FieldRenderProps<T, any>) {
-  return <input type="radio" {...input} {...rest} />;
+  return (
+    <input className="form-check-input" type="radio" {...input} {...rest} />
+  );
 }
 
 export default RadioInput;
