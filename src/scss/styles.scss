@@ -1,0 +1,234 @@
+@import "~bootstrap/scss/functions";
+
+//reassign popover variables
+$popover-bg: #6673af;
+$popover-max-width: 180px;
+$popover-border-color: none;
+$popover-border-radius: 0;
+$popover-arrow-color: $popover-bg;
+
+//reassign default font
+$font-family-base: "Jost", sans-serif;
+
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/bootstrap";
+
+// new variables
+$grey-color: #999;
+$black-color: black;
+$orange-color: #f8a434;
+$radio-button-img: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' /></svg>");
+$switcher-button-img: url("data:image/svg+xml, <svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='4' fill='%23fff'/></svg>");
+$focus-shadow-checked: 0 0 0 0.15rem rgba(248, 164, 52, 0.5);
+$focus-shadow: 0 0 0 0.15rem rgba(153, 153, 153, 0.5);
+
+main {
+  padding-top: 1rem;
+  padding-left: 1rem;
+}
+
+// general form
+.custom-form-title {
+  padding-top: 1.5rem;
+  font-size: x-small;
+  font-weight: 600;
+  color: $grey-color;
+}
+
+.custom-form {
+  padding-top: 0.25rem;
+  padding-left: 1rem;
+}
+
+// radio buttons
+
+.custom-form-radio-field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: small;
+
+  .form-check-input {
+    margin: 0;
+    cursor: pointer;
+
+    &:checked {
+      background-color: white;
+      border-color: $grey-color;
+      background-image: $radio-button-img;
+    }
+
+    &:focus {
+      box-shadow: $focus-shadow;
+    }
+  }
+
+  .form-check-label {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+// popover
+
+.popover {
+  font-size: x-small;
+  font-weight: 600;
+  padding: 0.8rem;
+  color: white;
+}
+
+.popover-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  transition: background-color, box-shadow 0.3s ease;
+  margin-left: 4px;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &:focus {
+    box-shadow: $focus-shadow;
+  }
+}
+
+.popover-button-icon {
+  pointer-events: none;
+  font-size: 1.125rem;
+  color: $grey-color;
+}
+
+// wrapper
+
+.form-inner-wrapper {
+  padding-left: 1.2rem;
+}
+
+// switcher
+
+.custom-form-switch {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.8rem;
+  padding-top: 0.5rem;
+  padding-left: 0;
+
+  .label-1 {
+    order: 0;
+  }
+
+  .label-2 {
+    order: 2;
+  }
+
+  input[type="checkbox"]:checked {
+    & ~ .label-1 {
+      color: $grey-color;
+    }
+  }
+
+  input[type="checkbox"]:not(:checked) {
+    & ~ .label-2 {
+      color: $grey-color;
+    }
+  }
+
+  .form-check-input {
+    font-size: 1rem;
+    width: 1.6em;
+    order: 1;
+    margin-inline: 0.5rem;
+    margin-top: 0;
+    background-color: $grey-color;
+    border-color: $grey-color;
+    background-image: $switcher-button-img;
+
+    &:checked {
+      background-color: $orange-color;
+      border-color: $orange-color;
+      background-image: $switcher-button-img;
+    }
+
+    &:checked:focus {
+      box-shadow: $focus-shadow-checked;
+    }
+
+    &:focus {
+      box-shadow: $focus-shadow;
+      background-image: $switcher-button-img;
+    }
+  }
+
+  .form-check-label {
+    font-weight: 600;
+    font-size: x-small;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+// amount field
+.salary-amount-wrapper {
+  font-size: small;
+  font-weight: 600;
+
+  .form-input-text {
+    margin-right: 0.3rem;
+    padding: 0.125rem 0.625rem;
+    max-width: 8.1rem;
+    font-weight: inherit;
+
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: none;
+
+    transition: border-color 0.3s, box-shadow 0.3s;
+
+    &:focus {
+      border-color: $grey-color;
+      box-shadow: $focus-shadow;
+    }
+
+    // &:focus::placeholder {
+    //   color: red;
+    // }
+
+    &::placeholder {
+      color: $grey-color;
+    }
+  }
+}
+
+// clarification tip
+
+.clarification-tip {
+  display: grid;
+  gap: 0.4rem;
+  margin-top: 3.125rem;
+  padding: 1.4rem;
+  width: fit-content;
+  font-size: small;
+  background-color: #fbf4da;
+
+  p {
+    margin: 0;
+  }
+}

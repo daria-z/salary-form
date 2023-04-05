@@ -1,0 +1,20 @@
+/* Custom radio button styles */
+$custom-color: #FF5733;
+$custom-color-focus: rgba(255, 87, 51, 0.25);
+
+.custom-radio {
+  .custom-control-input {
+    &:checked~.custom-control-label::before {
+      background-color: $custom-color;
+      border-color: $custom-color;
+    }
+
+    &:focus~.custom-control-label::before {
+      box-shadow: 0 0 0 0.2rem $custom-color-focus;
+    }
+
+    &:checked:focus~.custom-control-label::before {
+      box-shadow: 0 0 0 0.2rem $custom-color-focus;
+    }
+  }
+}
