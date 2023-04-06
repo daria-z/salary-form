@@ -18,7 +18,7 @@ export const SalaryForm: React.FC = () => {
 
   return (
     <Form
-      onSubmit={onSubmit}
+      onSubmit={(onSubmit)}
       initialValues={{
         payrollPeriod: "perMonth",
         withoutTax: true,
